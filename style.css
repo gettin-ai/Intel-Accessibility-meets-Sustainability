@@ -5,7 +5,7 @@
 
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-family: "Atkinson Hyperlegible", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   color: #0b1f33;
   background: #f4f6f8;
 }
@@ -126,6 +126,8 @@ img {
   font-size: 28px;
   font-weight: 800;
   color: #0b67b2; /* Intel-ish blue */
+  font-family: "Inter", sans-serif;
+letter-spacing: 0.5px;
 }
 
 .card__title {
@@ -202,6 +204,16 @@ img {
     width: 100%;
   }
 }
-  transition: opacity 300ms ease;
-  pointer-events: none;
+.logo-btn {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.logo-btn:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 6px;
+  border-radius: 12px;
+}
 /* Add your CSS here */
