@@ -208,7 +208,7 @@
 
     </section>
 
-    <p class="hint">Scroll to view timeline | Hover over cards to learn more!</p>
+    <p class="hint">Scroll to explore timeline | Tap or hover on cards to learn more.</p>
 
     <!-- Newsletter Form -->
 
@@ -219,7 +219,7 @@
     Get occasional updates about sustainability goals, milestones, and events. Required fields are marked.
   </p>
 
-  <form class="row g-3 gx-4 m-0" action="#" method="post" aria-describedby="newsletter-help" id="newsletterForm">
+  <form class="row g-3 gx-4 m-0" action="#" method="post" aria-describedby="newsletter-help newsletterDemoNote" id="newsletterForm" novalidate>
     <div class="col-12 col-md-4 p-0">
       <label for="firstName" class="form-label">
         First name <span class="text-secondary">(optional)</span>
@@ -266,8 +266,11 @@
       </div>
     </div>
 
-    <div class="col-12 p-0 d-flex align-items-center gap-3">
-      <button type="submit" class="btn btn-primary">Subscribe</button>
+    <div class="col-12 p-0 d-flex align-items-center gap-3 flex-wrap">
+      <button type="submit" class="btn btn-primary">Submit Form</button>
+      <p class="small text-secondary mb-0" id="newsletterDemoNote">
+        Note: This is a demo experience. Submitting this form will not send data to Intel or add you to a real mailing list.
+      </p>
       <p class="mb-0" role="status" id="formStatus" aria-live="polite"></p>
     </div>
   </form>
@@ -335,5 +338,25 @@
   </footer>
 
   <script src="rtl-auto.js"></script> 
+  <script>
+    // Demo-only handler so learners can see a realistic flow without sending data.
+    const newsletterForm = document.getElementById("newsletterForm");
+    const formStatus = document.getElementById("formStatus");
+
+    if (newsletterForm && formStatus) {
+      newsletterForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        if (!newsletterForm.checkValidity()) {
+          newsletterForm.reportValidity();
+          formStatus.textContent = "Please complete the required fields before submitting this demo form.";
+          return;
+        }
+
+        formStatus.textContent = "Thanks! Demo submitted successfully. No data was sent.";
+        newsletterForm.reset();
+      });
+    }
+  </script>
 </body>
 </html>
